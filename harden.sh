@@ -30,8 +30,12 @@ echo "Root cannot login directly. Use su or sudo."
 echo "tty1" > /etc/securetty
 echo "Disable Root SSH Login"
 sed -ri "s/^#?PermitRootLogin.*/PermitRootLogin no/g" /etc/ssh/sshd_config
+curl -sL https://raw.githubusercontent.com/provisiondata/pdsiss/master/banner -o /etc/ssh/banner
+sed -ri "s/^#?Banner.*/Banner \/etc\/ssh\/banner/g" /etc/ssh/sshd_config
 echo "Restrict /root directory to root user"
 chmod 700 /root
+
+#Banner none
 
 echo "Minimum passwords length is 8"
 sed -i 's/PASS_MIN_LEN\s+0/PASS_MIN_LEN 8/g' /etc/login.defs
