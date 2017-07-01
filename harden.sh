@@ -40,8 +40,13 @@ chmod 700 /root
 
 echo "Minimum passwords length is 8"
 sed -i 's/PASS_MIN_LEN\s+0/PASS_MIN_LEN 8/g' /etc/login.defs
-echo "Change password encryption type to sha512"
+echo "Changed password encryption type to SHA-512"
 authconfig --passalgo=sha512 --update
+echo "Existing users will need to change their password after next login"
+for i in `cat /etc/shadow | awk -F: '{if ( $1 != "root" && $1 != "pdsiroot" && $2 ~ /^!?[[:alnum:]\.\/\$]/ ) print $1}'`
+do
+    chage -d0 $i <<<$i
+done
 
 echo "Kick inactive users after 20 min."
 echo "readonly TMOUT=1200"> /etc/profile.d/os-security.sh
