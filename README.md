@@ -13,7 +13,7 @@ Basic hardening for internal servers (non-public facing)
 * Set minimum password length
 * Set passwordh algorithm to sha256
 * Kick inactive users after 20 minutes
-* Restrict `cront` and `at` to root.
+* Restrict `cron` and `at` to root.
 ```
-curl --silent --location https://raw.githubusercontent.com/provisiondata/pdsiss/master/harden.sh | bash -
+sudo curl --silent --location https://raw.githubusercontent.com/provisiondata/pdsiss/master/harden.sh | bash -
 ```
