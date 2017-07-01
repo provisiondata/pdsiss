@@ -4,8 +4,7 @@
 yum makecache fast 
 yum update -y
 yum install -y epel-release
-yum install -y yum-utils wget
-yum install -y fail2ban-firewalld
+yum install -y yum-utils wget git fail2ban-firewalld
 yum update -y
 yum clean all
 
