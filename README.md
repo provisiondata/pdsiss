@@ -17,5 +17,5 @@ Basic hardening for internal servers (non-public facing)
 
 **Run as root:**
 ```
-curl --silent --location https://raw.githubusercontent.com/provisiondata/pdsiss/master/harden.sh | bash -
+curl -sL https://raw.githubusercontent.com/provisiondata/pdsiss/master/harden.sh | bash -
 ```
