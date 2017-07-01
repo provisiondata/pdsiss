@@ -46,7 +46,7 @@ echo "Change password encryption type to sha512"
 authconfig --passalgo=sha512 --update
 
 echo "Kick inactive users after 20 min."
-echo "readonly TMOUT=1200">> /etc/profile.d/os-security.sh
+echo "readonly TMOUT=1200"> /etc/profile.d/os-security.sh
 echo "readonly HISTFILE" >> /etc/profile.d/os-security.sh
 chmod +x /etc/profile.d/os-security.sh
 
