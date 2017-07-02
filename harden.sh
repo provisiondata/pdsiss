@@ -9,7 +9,7 @@ fi
 yum makecache fast 
 yum update -y
 yum install -y epel-release
-yum install -y yum-utils wget git fail2ban-firewalld
+yum install -y yum-utils fail2ban-firewalld rsyslog
 yum update -y
 yum clean all
 
@@ -61,3 +61,8 @@ echo "Restrict at to root and /etc/at.allow"
 touch /etc/at.allow
 chmod 600 /etc/at.allow
 awk -F: '{print $1}' /etc/passwd | grep -v root > /etc/at.deny
+
+echo "Forward syslog to Graylog"
+echo "$template GRAYLOGRFC5424,\"%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msg%\n\"" > /etc/rsyslog.d/90-graylog2.conf
+echo "*.* @10.248.31.20:1514;GRAYLOGRFC5424" >> /etc/rsyslog.d/90-graylog2.conf
+systemctl restart rsyslog.service
