@@ -17,7 +17,9 @@ systemctl stop NetworkManager.service
 systemctl disable NetworkManager.service
 
 echo "search mgmt.pdsint.net" > /etc/resolv.conf && \
+echo "nameserver 208.73.56.28" >> /etc/resolv.conf && \
 echo "nameserver 199.60.252.143" >> /etc/resolv.conf && \
+echo "nameserver 208.73.56.29" >> /etc/resolv.conf && \
 echo "nameserver 199.185.139.143" >> /etc/resolv.conf
 
 echo "[sshd]" > /etc/fail2ban/jail.local
