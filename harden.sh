@@ -9,7 +9,7 @@ fi
 yum makecache fast 
 yum update -y
 yum install -y epel-release
-yum install -y yum-utils fail2ban-firewalld rsyslog
+yum install -y yum-utils fail2ban-firewalld rsyslog wget
 yum update -y
 yum clean all
 
