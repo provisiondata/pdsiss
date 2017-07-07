@@ -20,8 +20,8 @@ echo "nameserver 199.60.252.143" >> /etc/resolv.conf && \
 echo "nameserver 208.73.56.29" >> /etc/resolv.conf && \
 echo "nameserver 199.185.139.143" >> /etc/resolv.conf
 
-systemctl enable network
-systemctl restart network
+chkconfig network on
+service network start
 
 echo "[sshd]" > /etc/fail2ban/jail.local
 echo "enabled = true" >> /etc/fail2ban/jail.local
