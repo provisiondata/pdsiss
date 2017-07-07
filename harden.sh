@@ -1,5 +1,6 @@
 #!/bin/bash
 # Basic Centos 7 Hardening 
+# curl -sL https://raw.githubusercontent.com/provisiondata/pdsiss/master/harden.sh | bash -
 
 if [ "$(id -u)" != "0" ]; then
         echo "This script must be run as root" 1>&2
