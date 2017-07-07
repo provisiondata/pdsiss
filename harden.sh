@@ -8,7 +8,7 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 yum update -y
-yum install -y epel-release yum-utils fail2ban-firewalld rsyslog wget vim 
+yum install -y epel-release yum-utils fail2ban-firewalld rsyslog wget vim nano 
 yum clean all
 
 systemctl stop NetworkManager.service
