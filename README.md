@@ -28,3 +28,11 @@ Don't forget to add the `pdsiroot` user and record the password in KeePass:
 # passwd pdsiroot
 # usermod -aG wheel pdsiroot
 ```
+
+## init_docker_vm.sh
+Installs and configures docker for participation in our swarm.  Does not automatically join the swarm.
+
+**Run as pdsiroot:**
+```
+# curl -sL https://raw.githubusercontent.com/provisiondata/pdsiss/master/init_docker_vm.sh | bash -
+```
