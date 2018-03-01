@@ -67,5 +67,5 @@ awk -F: '{print $1}' /etc/passwd | grep -v root > /etc/at.deny
 
 echo "Forward syslog to Graylog"
 echo "\$template GRAYLOGRFC5424,\"<%PRI%>%PROTOCOL-VERSION% %TIMESTAMP:::date-rfc3339% %HOSTNAME% %APP-NAME% %PROCID% %MSGID% %STRUCTURED-DATA% %msg%\n\"" > /etc/rsyslog.d/90-graylog2.conf
-echo "*.* @10.248.31.20:1514;GRAYLOGRFC5424" >> /etc/rsyslog.d/90-graylog2.conf
+echo "*.* @graylog.pdsint.net:1514;GRAYLOGRFC5424" >> /etc/rsyslog.d/90-graylog2.conf
 systemctl restart rsyslog.service
