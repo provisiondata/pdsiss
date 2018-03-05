@@ -70,3 +70,5 @@ echo "Forward syslog to Graylog"
 echo "\$template GRAYLOGRFC5424,\"<%PRI%>%PROTOCOL-VERSION% %TIMESTAMP:::date-rfc3339% %HOSTNAME% %APP-NAME% %PROCID% %MSGID% %STRUCTURED-DATA% %msg%\n\"" > /etc/rsyslog.d/90-graylog2.conf
 echo "*.* @graylog.pdsint.net:1514;GRAYLOGRFC5424" >> /etc/rsyslog.d/90-graylog2.conf
 systemctl restart rsyslog.service
+
+echo "You should reboot this server before doing anything else."
