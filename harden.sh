@@ -25,7 +25,10 @@ echo "nameserver 208.73.56.29" >> /etc/resolv.conf && \
 echo "nameserver 199.185.139.143" >> /etc/resolv.conf
 
 adapter=`ip link | awk -F'[: ]+' '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}'`
-echo "NM_CONTROLLED=\"no\"" >> /etc/sysconfig/network-scripts/ifcfg-$adapter
+if ! grep -qi 'NM_CONTROLLED="\?NO"\?' "/etc/sysconfig/network-scripts/ifcfg-$adapter"; then
+  echo "Adding NM_CONTROLLED=\"NO\" to $adapter"
+  echo "NM_CONTROLLED=\"no\"" >> /etc/sysconfig/network-scripts/ifcfg-$adapter
+fi
 
 echo "[sshd]" > /etc/fail2ban/jail.local
 echo "enabled = true" >> /etc/fail2ban/jail.local
