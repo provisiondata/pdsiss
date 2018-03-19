@@ -9,7 +9,7 @@ fi
 
 yum makecache fast
 yum update -y
-yum install -y epel-release yum-utils fail2ban-firewalld rsyslog wget vim nano 
+yum install -y epel-release yum-utils fail2ban-firewalld rsyslog wget vim nano screen
 yum clean all
 
 systemctl stop NetworkManager.service
