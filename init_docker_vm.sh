@@ -21,11 +21,11 @@ yum install -y docker-ce
 
 systemctl start NetworkManager.service
 systemctl start docker
-nmcli connection modify docker0 connection.zone trusted
+nmcli connection modify docker0 connection.zone public
 systemctl stop NetworkManager.service
-firewall-cmd --permanent --zone=trusted --change-interface=docker0
+firewall-cmd --permanent --zone=public --change-interface=docker0
 systemctl start NetworkManager.service
-nmcli connection modify docker0 connection.zone trusted
+nmcli connection modify docker0 connection.zone public
 systemctl restart docker.service
 systemctl stop NetworkManager.service
 
